@@ -1,6 +1,10 @@
 // This code creates methods for sensing each colour 
 
 
+void setup() {
+  int color = 0;
+}
+
 // sets the output frequency
 void frequencyScaling() {
   digitalWrite(s0, HIGH);
@@ -9,9 +13,9 @@ void frequencyScaling() {
 
 // read the RGB components
 void readRGB() {
-  red = 0;
-  grn = 0;
-  blu = 0;
+  double red = 0;
+  double grn = 0;
+  double = 0;
   int n = 10; // the amount of times to test the colour >> can change whenever
   for (int i = 0; i < n; ++i) {
     //read red component
@@ -35,7 +39,7 @@ void readRGB() {
 }
 
 // gets the actual colour
-void getColor() {  
+int getColor() {  
   readRGB();
   
   // these values are probably not correct, i just found this online and put it here for future referencing for format
@@ -46,10 +50,10 @@ void getColor() {
   // also the numbers in this code confuse me because in RGB parameters, red is detected when R is the max value 
   // (same applies for blue and green... but this is not the case here???? help)
   
-  if (red > 8 && red < 18 && grn > 9 && grn < 19 && blu > 8 && blu < 16) color = "WHITE";
-  else if (red > 80 && red < 125 && grn > 90 && grn < 125 && blu > 80 && blu < 125) color = "BLACK";
-  else if (red > 12 && red < 30 && grn > 40 && grn < 70 && blu > 33 && blu < 70) color = "RED";
-  else if (red > 10 && red < 20 && grn > 10 && grn < 25 && blu > 20 && blu < 38) color = "YELLOW";
-  else if (red > 65 && red < 125 && grn > 65 && grn < 115 && blu > 32 && blu < 65) color = "BLUE";
-  else  color = "STRUCTURE";
+  if (red > 8 && red < 18 && grn > 9 && grn < 19 && blu > 8 && blu < 16) color = 1; // white
+  else if (red > 80 && red < 125 && grn > 90 && grn < 125 && blu > 80 && blu < 125) color = 2; // black
+  else if (red > 12 && red < 30 && grn > 40 && grn < 70 && blu > 33 && blu < 70) color = 3; // red
+  else if (red > 10 && red < 20 && grn > 10 && grn < 25 && blu > 20 && blu < 38) color = 4; // yellow
+  else if (red > 65 && red < 125 && grn > 65 && grn < 115 && blu > 32 && blu < 65) color = 5; // blue
+  else  color = 6; // structure
 }
