@@ -1,0 +1,61 @@
+//Define Pins
+//Motor A
+
+#define enableA 5
+#define MotorA1 6
+#define MotorA2 7
+
+//Motor B
+
+#define enableB 8
+#define MotorB1 9
+#define MotorB2 10
+ 
+void setup() {
+  
+  Serial.begin (9600);
+  //configure pin modes
+  pinMode (enableA, OUTPUT);
+  pinMode (MotorA1, OUTPUT);
+  pinMode (MotorA2, OUTPUT);  
+  
+  pinMode (enableB, OUTPUT);
+  pinMode (MotorB1, OUTPUT);
+  pinMode (MotorB2, OUTPUT);  
+  
+}
+ 
+void loop() {
+  //enabling motors
+  Serial.println ("Enabling Motors");
+  digitalWrite (enableA, HIGH);
+  digitalWrite (enableB, HIGH);
+  delay (1000);
+
+  Serial.println ("Motion Forward"); // counterclockwise
+  digitalWrite (MotorA1, LOW);
+  digitalWrite (MotorA2, HIGH);
+ 
+  digitalWrite (MotorB1, LOW);
+  digitalWrite (MotorB2, HIGH);
+ 
+  //3s forward
+  delay (3000);
+  
+  Serial.println ("Motion Backwards"); // clockwise
+  //reverse
+  digitalWrite (MotorA1,HIGH);
+  digitalWrite (MotorA2,LOW);  
+  
+  digitalWrite (MotorB1,HIGH);
+  digitalWrite (MotorB2,LOW);  
+ 
+  //5s backwards
+  delay (3000);
+ 
+  Serial.println ("Stoping motors");
+  //stop
+  digitalWrite (enableA, LOW);
+  digitalWrite (enableB, LOW);
+  delay (3000);
+}
