@@ -2,7 +2,7 @@
 #include <Wire.h>
 char x;
 bool allowedToExecute = true;
-int trigPin = 11;    // Trigger
+int trigPin = 8;    // Trigger
 int LeftFrontProximity = 12;    // LeftFrontProximity Sensor echo pin
 int RightFrontProximity = 13;    // RightFrontProximity Sensor echo pin
 long LeftFrontDuration, LeftFrontCm, RightFrontDuration, RightFrontCm;
