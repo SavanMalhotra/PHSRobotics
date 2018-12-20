@@ -1,9 +1,9 @@
 
 #include <Wire.h>
 
-#define enable 5
-#define MotorA 7
-#define MotorB 10
+#define enable 13
+#define MotorA 11
+#define MotorB 12
 
 char x;
 void setup() {
