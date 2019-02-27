@@ -1,8 +1,8 @@
 # PHS Robotics - Timeline
 
 - FEB 19-20
-  -	Savan: figure out proximity sensors; troubleshoot
-  -	Amy: figure out colour sensor logistics 
+  -	Savan: figure out proximity sensors; troubleshoot [ ]
+  -	Amy: figure out colour sensor logistics [ ]
 - FEB 26-27
   -	Test out colour sensors + establish colour ranges for code
   -	Start putting on rest of proximity sensors/colour sensors
