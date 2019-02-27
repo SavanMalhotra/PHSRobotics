@@ -1,7 +1,7 @@
 <h1>Arduino Code </h1>
 <h4><b>The code in this folder is the code that will go on the arduinos. </b></h4>
 
-<u>Master Arduino</u> - The Arduino connected to the proximity sensors
+<p><u>Master Arduino</u> - The Arduino connected to the proximity sensors</p>
   - Digital Pins
     - Pin 2: Trigger for all proximity sensors
     - Pin 3: Echo for Right proximity sensor
