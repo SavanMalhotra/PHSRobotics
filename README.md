@@ -10,16 +10,16 @@
   -	[ ] Finish putting all the hardware together; basic code for sensors/motors should run properly
 - MARCH BREAK
   -	[ ] Actual coding (refer to initial document from beginning of year with the code split up)
-  -	Aim to get all coding done over March Break (doesn’t have to work/it’s fine if missing any actual measurements; just get the basic frames and layout and overall put together)
+  -	[ ] Aim to get all coding done over March Break (doesn’t have to work/it’s fine if missing any actual measurements; just get the basic frames and layout and overall put together)
 - MAR 19-20
-  -	Look over each other’s codes, start testing out each component + filling in the measurements and such 
-  -	Code should be ready to start testing out for next week
+  -	[ ] Look over each other’s codes, start testing out each component + filling in the measurements and such 
+  -	[ ] Code should be ready to start testing out for next week
 - MAR 26-27
-  -	Testing – Goal: able to move continuously without hitting anything / detect all colours successfully
+  -	[ ] Testing – Goal: able to move continuously without hitting anything / detect all colours successfully
 - APR 2-3
-  -	Testing – Goal: able to line up in front of stands and retrieve blocks 
+  -	[ ] Testing – Goal: able to line up in front of stands and retrieve blocks 
 - APR 9-10
-  -	Any final testings/fixes
+  -	[ ] Any final testings/fixes
 - APR 16-17
   -	Backup week (MUST done by this date if not before; any final touches/adjustments)
 - APR 23-24 
