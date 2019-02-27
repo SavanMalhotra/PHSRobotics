@@ -3,6 +3,15 @@
 
 Slave Arduino - The Arduino connected to the motors
 Master Arduino - The Arduino connected to the proximity sensors
+  - Digital Pins
+    - Pin 2: Trigger for all proximity sensors
+    - Pin 3: Echo for Right proximity sensor
+    - Pin 4: Echo for Left proximity sensor
+  - Analog Pins
+    - Pin 5: I2C Netowork Pin (Connects arduinos together, making them talk to one another and send information back and forth)
+    - Pin 4: I2C Netowork Pin (Connects arduinos together, making them talk to one another and send information back and forth) 
 
 The slave.ino file is designed to be uploaded to the slave arduino.
 The master.ino file is designed to be uploaded to the master arduino.
+
+
