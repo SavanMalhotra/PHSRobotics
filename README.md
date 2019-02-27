@@ -1,15 +1,15 @@
 # PHS Robotics - Timeline
 
 - FEB 19-20
-  -	Savan: figure out proximity sensors; troubleshoot [ ]
-  -	Amy: figure out colour sensor logistics [ ]
+  -	[ ] Savan: figure out proximity sensors; troubleshoot
+  -	[ ] Amy: figure out colour sensor logistics
 - FEB 26-27
-  -	Test out colour sensors + establish colour ranges for code
-  -	Start putting on rest of proximity sensors/colour sensors
+  -	[ ] Test out colour sensors + establish colour ranges for code
+  -	[ ] Start putting on rest of proximity sensors/colour sensors
 - MAR 5-6
-  -	Finish putting all the hardware together; basic code for sensors/motors should run properly
+  -	[ ] Finish putting all the hardware together; basic code for sensors/motors should run properly
 - MARCH BREAK
-  -	Actual coding (refer to initial document from beginning of year with the code split up)
+  -	[ ] Actual coding (refer to initial document from beginning of year with the code split up)
   -	Aim to get all coding done over March Break (doesn’t have to work/it’s fine if missing any actual measurements; just get the basic frames and layout and overall put together)
 - MAR 19-20
   -	Look over each other’s codes, start testing out each component + filling in the measurements and such 
