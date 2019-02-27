@@ -1,4 +1,4 @@
-<h1>Arduino Code </h1>
+<h1>Arduino Code And Pin Declaration </h1>
 <h4><b>The code in this folder is the code that will go on the arduinos. </b></h4>
 
 Master Arduino - The Arduino connected to the proximity sensors 
