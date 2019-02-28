@@ -2,10 +2,10 @@
 char x;//holds character that will be sent to other arduino
 bool allowedToExecute = true;//used to determine if an object has already been detected or not
 
-int trigPin = 2;//trigger pin for all sensors
+int trigPin = 9;//trigger pin for all sensors
 
-int echoPin1 = 3;//front left proximity sensor
-int echoPin2 = 4;//front right proximity sensor
+int echoPin1 = 12;//front left proximity sensor
+int echoPin2 = 13;//front right proximity sensor
 int echoPin3 = 5;//claw proximity sensor
 
 void setup() {
