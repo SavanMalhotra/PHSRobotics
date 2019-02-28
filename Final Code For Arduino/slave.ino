@@ -33,13 +33,15 @@ void loop() {
   //Serial.println("Checking");
   
   if(x == 'A' || x == 'B') {
+    Serial.println("detected variable");
     stopForward();
   }
   else {
     //Serial.println ("Motion Forward"); // counterclockwise
-    digitalWrite (enable, LOW);
-    digitalWrite (MotorA, LOW);
-    digitalWrite (MotorB, HIGH); 
+    digitalWrite (enable, HIGH);
+    digitalWrite (MotorA, HIGH);
+    digitalWrite (MotorB, LOW);
+    Serial.println("Running");
   }
 }
 
@@ -47,24 +49,26 @@ void stopForward() {
   
   Serial.println("yes");
   digitalWrite (enable, LOW);
-  digitalWrite (MotorA, HIGH);
-  digitalWrite (MotorB, LOW);
-  delay (500);
+  delay(2000);
   digitalWrite (enable, HIGH);
-  digitalWrite (MotorA, HIGH);
-  digitalWrite (MotorB, LOW);
+  digitalWrite (MotorA, LOW);
+  digitalWrite (MotorB, HIGH);
   delay (2000);
-  digitalWrite (MotorA, HIGH);
-  digitalWrite (MotorB, HIGH);
-  delay (1500);
-  digitalWrite (MotorA, LOW);
-  digitalWrite (MotorB, HIGH);
-  delay (1500);
-  digitalWrite (MotorA, LOW);
-  digitalWrite (MotorB, LOW);
-  delay (1500);
-  digitalWrite (MotorA, LOW);
-  digitalWrite (MotorB, HIGH);
+//  digitalWrite (enable, HIGH);
+//  digitalWrite (MotorA, HIGH);
+//  digitalWrite (MotorB, LOW);
+//  delay (2000);
+//  digitalWrite (MotorA, HIGH);
+//  digitalWrite (MotorB, HIGH);
+//  delay (1500);
+//  digitalWrite (MotorA, LOW);
+//  digitalWrite (MotorB, HIGH);
+//  delay (1500);
+//  digitalWrite (MotorA, LOW);
+//  digitalWrite (MotorB, LOW);
+//  delay (1500);
+//  digitalWrite (MotorA, LOW);
+//  digitalWrite (MotorB, HIGH);
   x = 'c';
   sendEvent('R', 9);
 }
