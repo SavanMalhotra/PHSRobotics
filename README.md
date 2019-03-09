@@ -4,10 +4,10 @@
   -	[X] Savan: figure out proximity sensors; troubleshoot
   -	[X] Amy: figure out colour sensor logistics
 - FEB 26-27
-  -	[ ] Test out colour sensors + establish colour ranges for code
-  -	[ ] Start putting on rest of proximity sensors/colour sensors
+  -	[X] Test out colour sensors + establish colour ranges for code
+  -	[X] Start putting on rest of proximity sensors/colour sensors
 - MAR 5-6
-  -	[ ] Finish putting all the hardware together; basic code for sensors/motors should run properly
+  -	[X] Finish putting all the hardware together; basic code for sensors/motors should run properly
 - MARCH BREAK
   -	[ ] Actual coding (refer to initial document from beginning of year with the code split up)
   -	[ ] Aim to get all coding done over March Break (doesn’t have to work/it’s fine if missing any actual measurements; just get the basic frames and layout and overall put together)
