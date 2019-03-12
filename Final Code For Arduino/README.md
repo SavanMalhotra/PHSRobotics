@@ -24,3 +24,7 @@ Slave Arduino - The Arduino connected to the motors
 
 The slave.ino file is designed to be uploaded to the slave arduino.
 The master.ino file is designed to be uploaded to the master arduino.
+
+<h3>Errors</h3> 
+  - Color sensor range not working
+  - Right proximity sensor not working
