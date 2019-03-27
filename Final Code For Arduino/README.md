@@ -28,6 +28,8 @@ The master.ino file is designed to be uploaded to the master arduino.
 <h3>Errors</h3> 
   - Color sensor range not working
   - Right proximity sensor not working
+  - Turning and going backwards
+  
   
 <h2>Int values for Colors</h2>
     - Black 0
