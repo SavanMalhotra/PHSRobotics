@@ -67,7 +67,7 @@ void sendEvent(char val, int id) {
 
 void loop() {
   detectColor();
-  //proximitySensor();
+  proximitySensor();
   delay(300);
 }
 
