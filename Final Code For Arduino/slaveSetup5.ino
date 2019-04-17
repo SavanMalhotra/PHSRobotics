@@ -22,14 +22,20 @@ void setup() {
   Wire.onReceive(receiveEvent);
   
   Serial.print("Has begun");
+  
+  forward();
+  delay (???? 4feet);
 }
+
 void receiveEvent(int bytes) {
   x = Wire.read();
   Serial.println(x);
 }
 
 void loop() {
-  
+  turnLeft();
+  delay (750);
+  forward();
   if(x == 'L' || x == 'R') {
     Serial.println("detected variable");
     objectAttempt();
@@ -43,6 +49,12 @@ void loop() {
     Serial.println("Running");
   }
   
+}
+
+void forward() {
+    digitalWrite (enable, HIGH);
+    digitalWrite (MotorA, HIGH);
+    digitalWrite (MotorB, LOW);
 }
 
 void stopF() {
@@ -80,6 +92,12 @@ void movingAway() {
 
 void dropObject() {
   digitalWrite (clawDirection, LOW); // this should be opening
+}
+
+void turnLeft() { // test???
+    digitalWrite (enable, HIGH);
+    digitalWrite (MotorA, HIGH);
+    digitalWrite (MotorB, LOW);
 }
 
 void sendEvent(char val, int id) {
