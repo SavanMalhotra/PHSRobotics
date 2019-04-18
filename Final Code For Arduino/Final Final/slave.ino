@@ -30,6 +30,9 @@ void receiveEvent(int bytes) {
     delay(500);
     dropObject();
   }
+  else {
+    digitalWrite(clawDirection, LOW); // claw opens up anyway
+  }
 }
 
 void loop() {
@@ -46,13 +49,16 @@ void loop() {
 
   else {
     // forwards
-    digitalWrite (enable, HIGH);
-    digitalWrite (MotorA, HIGH);
-    digitalWrite (MotorB, LOW);
+    forward();
     Serial.println("Running");
   } 
 }
 
+void forward() {
+    digitalWrite (enable, HIGH);
+    digitalWrite (MotorA, HIGH);
+    digitalWrite (MotorB, LOW);
+}
 void stopF() {
   digitalWrite (enable, LOW);
   delay(2000);
@@ -83,7 +89,35 @@ void movingAway() {
 }
 
 void dropObject() {
+  // turning one way >> track WHICH way
+  digitalWrite (enable, HIGH);
+  digitalWrite (MotorA, HIGH);
+  digitalWrite (MotorB, HIGH);
+  delay (1100);
+  
   digitalWrite (clawDirection, LOW); // this should be opening
+  delay (500);
+  
+  // turning back 
+  digitalWrite (enable, HIGH);
+  digitalWrite (MotorA, LOW);
+  digitalWrite (MotorB, LOW);
+  delay (1100);
+
+  // turn again
+  digitalWrite (enable, HIGH);
+  digitalWrite (MotorA, LOW);
+  digitalWrite (MotorB, LOW);
+  delay (1100);
+
+  forward();
+  delay (2000);
+
+  // turn back
+  digitalWrite (enable, HIGH);
+  digitalWrite (MotorA, HIGH);
+  digitalWrite (MotorB, HIGH);
+  delay (1100);
 }
 
 void sendEvent(char val, int id) {
