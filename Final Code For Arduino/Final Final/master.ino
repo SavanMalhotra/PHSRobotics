@@ -23,6 +23,7 @@ void setup() {
   pinMode(trigPin, OUTPUT);
   pinMode(LeftFrontProximity, INPUT);
   pinMode(RightFrontProximity, INPUT);
+  pinMode(TopFrontProximity, INPUT);
   
   Serial.begin(9600);
 }
@@ -33,8 +34,8 @@ void receiveEvent(int bytes) {
     allowedToExecute = true;
   }
   if(x =='B'){
-    Serial.println("get B");
-    //checkBlock(); 
+    //Serial.println("get B");
+    checkBlock(); 
     sendEvent('J', 9);
   } 
 }
@@ -52,8 +53,8 @@ void checkBlock() {
   pinMode(TopFrontProximity, INPUT);
   TopFrontDuration = pulseIn(TopFrontProximity, HIGH);
   // Convert the time into a distance
- // blockDistance = (TopFrontDuration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
-  blockDistance = 5;
+  blockDistance = (TopFrontDuration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
+  //blockDistance = 5;
   delay(250);
 
   digitalWrite(trigPin, LOW);
@@ -68,10 +69,10 @@ void checkBlock() {
   pinMode(TopFrontProximity, INPUT);
   TopFrontDuration = pulseIn(TopFrontProximity, HIGH);
   // Convert the time into a distance
-  //TopFrontCm = (TopFrontDuration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
-  TopFrontCm = 5;
+  TopFrontCm = (TopFrontDuration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
+  //TopFrontCm = 5;
   Serial.println("got block test");
-  if(TopFrontCm == blockDistance){
+  if(TopFrontCm <= blockDistance){
     Serial.println("got block");
     sendEvent('J', 9);
   } 
