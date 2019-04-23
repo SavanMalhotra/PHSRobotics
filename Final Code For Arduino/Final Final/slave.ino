@@ -6,6 +6,8 @@
 #define clawEnable 10
 #define clawDirection 4
 
+
+
 char x;
 void setup() {
   //Serial Port begin
@@ -26,13 +28,11 @@ void setup() {
 void receiveEvent(int bytes) {
   x = Wire.read();
   Serial.println(x);
-  if(x == 'J') {
-    delay(500);
-    dropObject();
-  }
-  else {
-    digitalWrite(clawDirection, LOW); // claw opens up anyway
-  }
+//  if(x == 'J') {
+//    delay(500);
+//    dropObject();
+//  }
+
 }
 
 void loop() {
@@ -40,17 +40,23 @@ void loop() {
     Serial.println("detected variable");
     objectAttempt();
   }
-
-  else if(x == 'B') {
-    digitalWrite (enable, HIGH);
-    digitalWrite (MotorA, LOW);
-    digitalWrite (MotorB, HIGH);
+  else if(x == 'J') {
+    dropObject();
+    x = 'G';
+    sendEvent('G', 9);
+    Serial.println(x);
+    Serial.println("OUT");
   }
-
+  else if(x == 'N') {
+    Serial.print("lol nothing");
+    x = 'G';
+    sendEvent('G', 9);
+    digitalWrite (clawDirection, LOW);
+  }
   else {
     // forwards
     forward();
-    Serial.println("Running");
+    //Serial.println("Running");
   } 
 }
 
@@ -71,9 +77,13 @@ void objectAttempt() {
   digitalWrite (clawDirection, HIGH); // this should be closing, not sure
   // put here the distance third proximity at top detects
   delay(2000);
+
+  x = 'B';
+  //Serial.println("test");
+  sendEvent('B', 9);
   
   movingAway();
- 
+  delay(3000);
 }
 
 void movingAway() {
@@ -82,42 +92,37 @@ void movingAway() {
   digitalWrite (enable, HIGH);
   digitalWrite (MotorA, LOW);
   digitalWrite (MotorB, HIGH);
-  Serial.println("test");
-  x = 'B';
-  sendEvent('B', 9);
- 
 }
 
 void dropObject() {
   // turning one way >> track WHICH way
+  Serial.println("DROP");
   digitalWrite (enable, HIGH);
   digitalWrite (MotorA, HIGH);
   digitalWrite (MotorB, HIGH);
-  delay (1100);
+  delay (1050);
   
   digitalWrite (clawDirection, LOW); // this should be opening
   delay (500);
   
-  // turning back 
+  // turning back & other way
   digitalWrite (enable, HIGH);
   digitalWrite (MotorA, LOW);
   digitalWrite (MotorB, LOW);
-  delay (1100);
+  delay (3100);
 
-  // turn again
-  digitalWrite (enable, HIGH);
-  digitalWrite (MotorA, LOW);
-  digitalWrite (MotorB, LOW);
-  delay (1100);
 
   forward();
-  delay (2000);
+  delay (500);
 
   // turn back
   digitalWrite (enable, HIGH);
   digitalWrite (MotorA, HIGH);
   digitalWrite (MotorB, HIGH);
-  delay (1100);
+  delay (1000);
+
+  Serial.println("in turning");
+  x = 'G';
 }
 
 void sendEvent(char val, int id) {
