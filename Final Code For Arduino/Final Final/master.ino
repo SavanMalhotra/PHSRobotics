@@ -7,6 +7,8 @@ int RightFrontProximity = 3;    // RightFrontProximity Sensor echo pin
 int TopFrontProximity = 5; //TopFrontProximity Sensor echo pin
 long LeftFrontDuration, LeftFrontCm, RightFrontDuration, RightFrontCm,TopFrontDuration, TopFrontCm;
 
+#define test 7
+
 int proximityDistanceVariable = 20;
 String one = "";
 String two = "";
@@ -24,7 +26,7 @@ void setup() {
   pinMode(LeftFrontProximity, INPUT);
   pinMode(RightFrontProximity, INPUT);
   pinMode(TopFrontProximity, INPUT);
-  
+  pinMode(test, OUTPUT);
   Serial.begin(9600);
 }
 
@@ -33,14 +35,15 @@ void receiveEvent(int bytes) {
   if(x == 'G') {
     allowedToExecute = true;
   }
-  if(x =='B'){
-    //Serial.println("get B");
-    checkBlock(); 
-    sendEvent('J', 9);
-  } 
+//  if(x =='B'){
+//    //Serial.print("BBB");
+//    checkBlock(); 
+//    digitalWrite(test, HIGH);
+//  } 
 }
 
 void checkBlock() {
+  //Serial.println("called");
   digitalWrite(trigPin, LOW);
   delayMicroseconds(5);
   digitalWrite(trigPin, HIGH);
@@ -55,7 +58,7 @@ void checkBlock() {
   // Convert the time into a distance
   blockDistance = (TopFrontDuration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
   //blockDistance = 5;
-  delay(250);
+  delay(750);
 
   digitalWrite(trigPin, LOW);
   delayMicroseconds(5);
@@ -71,15 +74,25 @@ void checkBlock() {
   // Convert the time into a distance
   TopFrontCm = (TopFrontDuration/2) / 29.1;     // Divide by 29.1 or multiply by 0.0343
   //TopFrontCm = 5;
-  Serial.println("got block test");
-  if(TopFrontCm <= blockDistance){
-    Serial.println("got block");
-    sendEvent('J', 9);
-  } 
+  //Serial.println("got block test");
+
+  Serial.print("first value: ");
+  Serial.println(blockDistance);
+  Serial.print("second value: ");
+  Serial.println(TopFrontCm);
+  if(TopFrontCm <= blockDistance+2 && blockDistance < 10){
+    //Serial.println("got block");
+    sendEvent('J', 9); //>????????????
+  }
+  else {
+    Serial.println("nothing");
+    sendEvent('N', 9);
+  }
 }
 
 void sendEvent(char val, int id) {
-  allowedToExecute = false;
+  Serial.println("aaa");
+  
   Wire.beginTransmission(id);
   Wire.write(val);
   Wire.endTransmission(id);
@@ -89,6 +102,11 @@ void sendEvent(char val, int id) {
 void loop() {
   proximitySensor();
   delay(300);
+  if(x =='B'){
+    Serial.print("BBB");
+    checkBlock(); 
+    digitalWrite(test, HIGH);
+  } 
 }
 
 void proximitySensor() {
@@ -118,12 +136,14 @@ void proximitySensor() {
   Serial.println(LeftFrontCm);
   if(LeftFrontCm <= proximityDistanceVariable && allowedToExecute && LeftFrontCm >0) {
     delay(475);
+    //allowedToExecute = false;
     sendEvent('L', 9);
   }
 
   Serial.println(RightFrontCm);
   if(RightFrontCm <= proximityDistanceVariable && allowedToExecute && RightFrontCm>0) {
     delay(475);
+    //allowedToExecute = false;
     sendEvent('R', 9);
   }
 }
