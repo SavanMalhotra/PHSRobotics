@@ -1,4 +1,4 @@
-#PHS Robotics 
+# PHS Robotics
 
 This reposity houses the Pickering High School Robotics Club code used duirng the years of 2018-2019 and 2019-2020.
 
